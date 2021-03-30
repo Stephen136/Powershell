@@ -1,1 +1,1 @@
-return Get-Date
+Get-Date
