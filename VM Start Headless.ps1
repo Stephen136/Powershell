@@ -1,5 +1,5 @@
-param($vmID)
-
-$vmIDstr = "--startvm $vmID"
-
-start-process 'C:\program files\oracle\virtualbox\vboxheadless' $vmIDstr  -WindowStyle Hidden
+Function StartHeadlessVM(){
+  param([string]$vmID)
+  $vmIDstr = "--startvm $vmID"
+  start-process 'C:\program files\oracle\virtualbox\vboxheadless' $vmIDstr  -WindowStyle Hidden
+}
