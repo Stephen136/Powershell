@@ -37,7 +37,7 @@ $x = 0
 
 Clear-Host
 Write-host "`n`n`n**********************************  Virtual Machines  *******************************************`n`n"
-Write-Host "VM UUID`t`t`t`t`t`tMAC`t`t`t`tNAME`n"
+Write-Host "VM UUID`t`t`t`t`t`t`t`tMAC`t`t`t`tNAME`n"
 
     foreach ($var in $lstVM) {
         Write-Host "$($lstVMId[$x])`t-`t$($lstVMMac[$x])`t-`t$($var)"
