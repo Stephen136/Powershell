@@ -1,4 +1,4 @@
-<############################################################################
+<#################    Close active virtual machines    #######################
 
 *    This code will close running Virtual Machines in VirtualBox
 *    relies on 'Vbox.vdi' being same name as 'Vbox Machine' name.
@@ -41,16 +41,20 @@ foreach ($hdd in $arrVmHDDs) {
             $lstVmState.Add($state)
         }
 }
+
 $x = 0
 $y = 0
+
 Clear-Host
 
 Write-Host "################ ACPI Powerdown of running Virtual Machines ################" `n`n
 
 foreach($v in $lstVmState) {
     if($v -ilike "*Locked*") {
-        & "D:\OneDrive - Blackburn College\Code\Virtual Machine\VM Stop.ps1" $lstVmName[$x]
-        Write-Host "`tPowering down VM:`t$($lstVmName[$x])"
+        $scriptUrl = `
+        'https://raw.githubusercontent.com/Stephen136/Powershell/main/VboxVmAcpiPowerdown.ps1'
+        . { iwr -useb  $scriptUrl } | iex; VboxVmAcpiPowerdown -vmName $lstVmName[$x]
+        Write-Host '#'$($y+1):`t"`tPowering down VM:`t$($lstVmName[$x])"
         Start-Sleep -s 1
         $y++
     }
