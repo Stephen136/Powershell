@@ -7,5 +7,5 @@ Function VboxVmRestart(){
         Start-Sleep -s 10
 
     $scriptUrl = 'https://raw.githubusercontent.com/Stephen136/Powershell/main/VboxVmStartHeadless.ps1'
-    . { iwr -useb  $scriptUrl } | iex; VboxVMStartHeadless -vmID $vmID
+    . { iwr -useb  $scriptUrl } | iex; VboxVmStartHeadless -vmID $vmID
 }
